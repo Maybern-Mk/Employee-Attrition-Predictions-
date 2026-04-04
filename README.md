@@ -1,199 +1,190 @@
-📉 Employee Attrition Detection System
+# Employee Attrition Detection System
 
-This project builds a machine learning–based employee attrition prediction system using HR analytics data.
-It predicts whether an employee is likely to leave the organization and provides a risk probability, helping HR teams take proactive retention measures.
+## Overview  
+This project develops a machine learning-based system to predict employee attrition using HR analytics data.  
 
-The solution covers the entire ML lifecycle — from data exploration and preprocessing to model training, evaluation, deployment, and a Streamlit web app.
+The model estimates the likelihood of an employee leaving the organization and provides a risk probability, enabling HR teams to take proactive retention measures. The project covers the complete machine learning lifecycle, including data analysis, preprocessing, model training, evaluation, and deployment through a Streamlit web application.
 
-🧠 Problem Statement
+---
 
-Employee attrition leads to:
+## Problem Statement  
+Employee attrition leads to increased hiring costs, loss of experienced talent, and reduced productivity.  
 
-Increased hiring and training costs
+The objective of this project is to predict employee attrition early using historical HR data and machine learning techniques to support data-driven decision-making.
 
-Loss of experienced talent
+---
 
-Reduced team productivity
+## Dataset  
+- Dataset: IBM HR Analytics – Employee Attrition & Performance  
+- File: `WA_Fn-UseC_-HR-Employee-Attrition.csv`  
 
-The goal of this project is to predict employee attrition early using historical HR data and machine learning models.
+### Target Variable  
+- `Attrition` (Yes / No)  
 
-📂 Dataset
+### Key Features  
+- MonthlyIncome  
+- Age  
+- JobSatisfaction  
+- Department  
+- Education  
+- Gender  
 
-Dataset Name: IBM HR Analytics – Employee Attrition & Performance
+---
 
-File: WA_Fn-UseC_-HR-Employee-Attrition.csv
+## Tools and Technologies  
+- **Python**  
+- **Pandas**, **NumPy** for data manipulation  
+- **Matplotlib**, **Seaborn** for visualization  
+- **Scikit-learn** for machine learning and preprocessing  
+- **Joblib** for model persistence  
+- **Streamlit** for deployment  
 
-Target Variable
+---
 
-Attrition → Yes / No
+## Exploratory Data Analysis  
+- Dataset structure and statistical summary  
+- Missing value detection and handling  
+- Outlier detection using IQR method  
+- Attrition distribution analysis  
+- Feature-wise analysis against attrition  
+- Correlation analysis with target variable  
+- Visualization using box plots and distribution plots  
 
-Key Features Used
+---
 
-MonthlyIncome
+## Data Preprocessing  
 
-Age
+### Categorical Features  
+- Label encoding for analysis  
+- One-hot encoding for modeling  
 
-JobSatisfaction
+### Numerical Features  
+- Feature scaling using StandardScaler  
 
-Department
+### Pipeline  
+- Implemented using ColumnTransformer  
+- Ensures consistent preprocessing during training and inference  
 
-Education
+### Train-Test Split  
+- 70% training, 30% testing  
+- Stratified sampling for balanced distribution  
 
-Gender
+---
 
-🛠️ Tech Stack & Libraries
+## Machine Learning Models  
 
-Python
+| Model                  | Purpose                  |
+|-----------------------|--------------------------|
+| Logistic Regression   | Baseline model           |
+| Decision Tree         | Rule-based learning      |
+| Random Forest         | Ensemble model           |
+| Support Vector Machine| Non-linear classification|
+| Voting Classifier     | Final ensemble model     |
 
-Pandas, NumPy – data manipulation
+---
 
-Matplotlib, Seaborn – data visualization
+## Model Evaluation  
 
-Scikit-learn – ML models & preprocessing
+### Metrics Used  
+- Accuracy  
+- Precision  
+- Recall  
+- F1-Score  
+- ROC-AUC Score  
 
-Joblib – model persistence
+### Result  
+The Voting Classifier demonstrated the most balanced performance across all evaluation metrics and was selected as the final model.
 
-Streamlit – interactive web application
+---
 
-🔍 Exploratory Data Analysis (EDA)
+## Final Model  
+- Model: Soft Voting Classifier  
+- Components: Logistic Regression, Decision Tree, Random Forest  
+- Saved as: `Attrition_detection_model.pkl`  
 
-Dataset overview, shape, and statistical summary
+### Additional Artifacts  
+- Stored feature names for consistency  
+- Reusable preprocessing pipeline for predictions  
 
-Missing value detection and handling
+---
 
-Outlier detection using IQR method
+## Prediction Pipeline  
+- Accepts raw employee input data  
+- Applies preprocessing automatically  
+- Generates:  
+  - Attrition prediction (Yes / No)  
+  - Probability score  
 
-Attrition distribution analysis
+---
 
-Feature-wise analysis vs Attrition
+## Streamlit Application  
 
-Correlation analysis with target variable
+An interactive web application is included for real-time predictions.
 
-Boxplots and distribution plots for numeric features
+### Features  
+- User-friendly input form  
+- One-click prediction  
+- Probability-based risk output  
+- HR-focused interface  
 
-⚙️ Data Preprocessing
-
-Categorical Encoding
-
-Label Encoding (for analysis)
-
-One-Hot Encoding (for modeling)
-
-Feature Scaling
-
-StandardScaler for numeric features
-
-ColumnTransformer
-
-Ensures consistent preprocessing during training and inference
-
-Train–Test Split
-
-70% Training, 30% Testing (Stratified)
-
-🤖 Machine Learning Models Used
-Model	Purpose
-Logistic Regression	Baseline classifier
-Decision Tree	Rule-based learning
-Random Forest	Ensemble learning
-Support Vector Machine (SVM)	Non-linear classification
-Voting Classifier (Final Model)	Soft-voting ensemble
-📊 Model Evaluation Metrics
-
-Each model is evaluated using:
-
-Accuracy
-
-Precision
-
-Recall
-
-F1-Score
-
-ROC-AUC Score
-
-The Voting Classifier was selected as the final model due to its balanced performance across all metrics.
-
-🏆 Final Model
-
-Model: Soft Voting Classifier
-
-Components: Logistic Regression, Decision Tree, Random Forest
-
-Saved as: Attrition_detection_model.pkl
-
-Additional artifacts:
-
-Feature names stored for consistency
-
-Preprocessing pipeline reused during prediction
-
-🔮 Prediction Pipeline
-
-Accepts raw employee details
-
-Automatically:
-
-Handles missing values
-
-Applies same preprocessing as training
-
-Generates prediction + probability
-
-Outputs:
-
-Will Employee Leave? (Yes / No)
-
-Probability of Attrition
-
-🌐 Streamlit Web Application
-
-An interactive Streamlit dashboard is included for real-time predictions.
-
-Features:
-
-User-friendly form for employee details
-
-One-click attrition prediction
-
-Clear risk probability display
-
-HR-ready interface
-
-Run the App
+### Run the App  
 streamlit run app.py
 
-📦 Installation
+---
+
+## Installation  
 pip install pandas numpy matplotlib seaborn scikit-learn joblib streamlit
 
-🚀 How to Run the Project
+---
 
-Clone the repository
+## How to Run  
 
-Install dependencies
+### 1. Setup  
+- Clone the repository  
+- Install dependencies  
 
-Run the Jupyter notebook for training
+### 2. Model Training  
+- Run the Jupyter notebook  
 
-Launch the Streamlit app for predictions
+### 3. Deployment  
+- Launch the Streamlit application  
 
-🎯 Project Highlights
+---
 
-✔ End-to-end ML pipeline
-✔ Proper preprocessing with ColumnTransformer
-✔ Multiple model comparison
-✔ Ensemble learning
-✔ Model persistence
-✔ Real-world HR use case
-✔ Deployment using Streamlit
+## Project Highlights  
+- End-to-end machine learning pipeline  
+- Structured preprocessing using ColumnTransformer  
+- Multiple model comparison and evaluation  
+- Ensemble learning using Voting Classifier  
+- Model persistence with Joblib  
+- Real-world HR analytics use case  
+- Deployment using Streamlit  
 
-📌 Future Improvements
+---
 
-Hyperparameter tuning
+## Business Value  
+- Enables early identification of at-risk employees  
+- Supports HR teams in improving retention strategies  
+- Reduces hiring and training costs  
+- Enhances workforce planning and decision-making  
 
-SHAP / feature importance explainability
+---
 
-Handling class imbalance
+## Use Case  
+This system can be integrated into HR analytics platforms to monitor employee risk levels and support proactive retention initiatives.
 
-Integration with real HR systems
+---
 
-Cloud deployment
+## Future Enhancements  
+- Hyperparameter tuning for improved performance  
+- Model explainability using SHAP or feature importance  
+- Handling class imbalance  
+- Integration with real HR management systems  
+- Cloud deployment for scalability  
+
+---
+
+## Author  
+**Mrudul Paku**  
+Data Analytics | Machine Learning | HR Analytics | Data Science  
+
